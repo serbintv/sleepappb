@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Users</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <style>
+      table, h2 {
+        text-align: center;
+      }
+      h2 {
+        margin-top: 30px;
+      }
+    </style>
+    <body>
+      <div class="container">
+        <h2>Users</h2>
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>UserId</th><th>DeviceId</th><th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+          #for(user in users) {
+            <tr>
+              <td>
+                 #(user.id)
+              </td>
+                <td>
+                   #(user.deviceId)
+                </td>
+                <td>
+                  #(user.date)
+                </td>
+           </tr>
+          }
+          </tbody>
+        </table>
+      </div>
+    </body>
+</html>
