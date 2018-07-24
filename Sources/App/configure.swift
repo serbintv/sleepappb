@@ -20,7 +20,14 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     let serverConfiure = NIOServerConfig.default(hostname: "localhost", port: 8080)
     services.register(serverConfiure)
     
-
+    let databasesConfig = MySQLDatabaseConfig(
+        hostname: Environment.get("DATABASE_HOSTNAME") ?? "localhost",
+        port: 3306,
+        username: Environment.get("DATABASE_USER") ?? "vapor",
+        password: Environment.get("DATABASE_PASSWORD") ?? "password",
+        database: Environment.get("DATABASE_DB") ?? "vapor"
+    )
+    services.register(databasesConfig)
    
 //    let mysqlConfig = MySQLDatabaseConfig(
 //        hostname: "127.0.0.1",
@@ -29,8 +36,8 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
 //        password: "STarichOK82",
 //        database: "sleepappDB"
 //    )
-    let mysqlConfig = MySQLDatabaseConfig()
-    services.register(mysqlConfig)
+    
+//    services.register(mysqlConfig)
     
 
     /// Register middleware
